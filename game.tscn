@@ -1,26 +1,20 @@
 [gd_scene load_steps=7 format=3 uid="uid://nk3futyhd5xq"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_36ujl"]
+[ext_resource type="PackedScene" uid="uid://c7bryqilrava" path="res://background.tscn" id="2_hdh55"]
 [ext_resource type="PackedScene" uid="uid://crgjr4dtiwt0o" path="res://basket.tscn" id="3_1r1d0"]
 [ext_resource type="PackedScene" uid="uid://dh5pcibs7vpim" path="res://spawner.tscn" id="3_ruxjr"]
 [ext_resource type="PackedScene" uid="uid://xkho8sp45eiy" path="res://counter.tscn" id="4_3ldk1"]
-
-[sub_resource type="Gradient" id="Gradient_qqhsb"]
-offsets = PackedFloat32Array(0.0479042, 0.149701, 0.508982, 0.664671, 1)
-colors = PackedColorArray(2.10572e-08, 0.237782, 0.0426036, 1, 1.50409e-08, 0.318864, 0.0304312, 1, 0, 0.521569, 0, 1, 0, 0.533333, 0.827451, 1, 0, 0.556863, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ctnis"]
-gradient = SubResource("Gradient_qqhsb")
-width = 255
+[ext_resource type="AudioStream" uid="uid://da3jx7t5y4ao3" path="res://lullaby2.mp3" id="5_beaxo"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_36ujl")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(571.799, 321.585)
-rotation = -1.5708
-scale = Vector2(2.53092, 1153.53)
-texture = SubResource("GradientTexture1D_ctnis")
+[node name="Background" parent="." instance=ExtResource("2_hdh55")]
+
+[node name="AbyssPoint" type="Marker2D" parent="."]
+position = Vector2(582, 666)
+scale = Vector2(0.5, 0.5)
 
 [node name="Basket" parent="." instance=ExtResource("3_1r1d0")]
 position = Vector2(571, 450)

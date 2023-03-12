@@ -1,10 +1,23 @@
 extends RigidBody2D
+class_name Sheep
 
-@export_range(0.5,10,0.1) var speed = 1.0
+signal abyss_reached
 
-# Called when the node enters the scene tree for the first time.
+@export var abyss_y = 0.0
+@export_range(0.5,5) var speed = 1.0
+@export_range(0.2,1) var size = 1.0
+
+var signal_emitted = false
+
 func _ready():
-	mass *= speed
+	$Sheep.scale = Vector2(size,size)
+	$CollisionPolygon2D.scale = Vector2(size,size)
+	gravity_scale = speed
 
-func add_speed(speed:float): 
-	mass *= speed
+func _process(delta)->void:
+	if global_position.y <= abyss_y and  !signal_emitted:
+		emit_signal("abyss_reached")
+
+func random()->void:
+	speed = randf_range(0.5,5)
+	size = randf_range(0.2,1)

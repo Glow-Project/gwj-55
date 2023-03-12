@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://sheep.gd" id="1_wwb5v"]
 
 [node name="Sheep" type="RigidBody2D"]
+inertia = 1.0
 script = ExtResource("1_wwb5v")
 
 [node name="Sheep" type="Sprite2D" parent="."]
