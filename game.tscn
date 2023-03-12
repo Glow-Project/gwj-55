@@ -13,7 +13,7 @@ script = ExtResource("1_36ujl")
 [node name="Background" parent="." instance=ExtResource("2_hdh55")]
 
 [node name="AbyssPoint" type="Marker2D" parent="."]
-position = Vector2(582, 666)
+position = Vector2(579, 609)
 scale = Vector2(0.5, 0.5)
 
 [node name="Basket" parent="." instance=ExtResource("3_1r1d0")]
@@ -25,7 +25,8 @@ position = Vector2(181, -93)
 [node name="SpawnerX2" type="Marker2D" parent="."]
 position = Vector2(965, -67)
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("left_point", "right_point") instance=ExtResource("3_ruxjr")]
+[node name="Spawner" parent="." node_paths=PackedStringArray("abyss_point", "left_point", "right_point") instance=ExtResource("3_ruxjr")]
+abyss_point = NodePath("../AbyssPoint")
 left_point = NodePath("../SpawnerX1")
 right_point = NodePath("../SpawnerX2")
 
@@ -46,3 +47,4 @@ volume_db = -8.303
 autoplay = true
 
 [connection signal="item_collected" from="Basket" to="." method="_on_basket_item_collected"]
+[connection signal="sheep_reached_abyss" from="Spawner" to="." method="_on_spawner_sheep_reached_abyss"]
