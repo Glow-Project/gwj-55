@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://xkho8sp45eiy"]
+
+[ext_resource type="Script" path="res://Counter.gd" id="1_smed5"]
+
+[sub_resource type="SystemFont" id="SystemFont_76w7x"]
+
+[sub_resource type="Theme" id="Theme_ice74"]
+default_font = SubResource("SystemFont_76w7x")
+default_font_size = 100
+
+[node name="Counter" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ice74")
+text = "0000"
+script = ExtResource("1_smed5")
