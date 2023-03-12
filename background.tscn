@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7bryqilrava"]
+
+[sub_resource type="Gradient" id="Gradient_qqhsb"]
+offsets = PackedFloat32Array(0.0479042, 0.149701, 0.508982, 0.664671, 1)
+colors = PackedColorArray(2.10572e-08, 0.237782, 0.0426036, 1, 1.50409e-08, 0.318864, 0.0304312, 1, 0, 0.377955, 0, 1, 5.53504e-07, 0.274246, 0.438841, 1, 0, 0.148368, 0.295661, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g36pl"]
+gradient = SubResource("Gradient_qqhsb")
+width = 255
+
+[sub_resource type="Gradient" id="Gradient_hrpnh"]
+interpolation_mode = 2
+colors = PackedColorArray(0.262932, 0.262932, 0.262932, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mssnh"]
+gradient = SubResource("Gradient_hrpnh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f02nm"]
+emission_shape = 3
+emission_box_extents = Vector3(600, 100, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0.2, -0.1, 10)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_mssnh")
+
+[node name="Background" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(571.799, 321.585)
+rotation = -1.5708
+scale = Vector2(2.53092, 1153.53)
+texture = SubResource("GradientTexture1D_g36pl")
+
+[node name="Stars" type="GPUParticles2D" parent="."]
+position = Vector2(571, 101)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_f02nm")
+lifetime = 30.0
+randomness = 0.4
