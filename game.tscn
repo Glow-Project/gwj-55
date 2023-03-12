@@ -40,4 +40,9 @@ offset_bottom = 130.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_beaxo")
+volume_db = -8.303
+autoplay = true
+
 [connection signal="item_collected" from="Basket" to="." method="_on_basket_item_collected"]
