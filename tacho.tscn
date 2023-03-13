@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c60r414l87mea"]
+
+[ext_resource type="Texture2D" uid="uid://ljpobgyeclcb" path="res://tacho_scale.png" id="1_ve4pj"]
+[ext_resource type="Texture2D" uid="uid://dvcn6ynijctx2" path="res://tacho_needle.png" id="2_ncgm3"]
+
+[node name="Tacho" type="Node2D"]
+
+[node name="Scale" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ve4pj")
+
+[node name="Needle" type="Sprite2D" parent="."]
+position = Vector2(-0.87439, 96.8195)
+scale = Vector2(0.938202, 0.843028)
+texture = ExtResource("2_ncgm3")
+offset = Vector2(-91.6317, -2.02003)
