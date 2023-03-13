@@ -9,11 +9,11 @@ var explosions = [
 
 func _on_basket_item_collected(body:Node2D):
 	body.queue_free()
-	
 	$Counter.add_score(1)
-
+	$Tacho.inc()
 
 func _on_spawner_sheep_reached_abyss(body):
+	$Tacho.dec()
 	var explosion:Explosion = explosion_scene.instantiate()
 	explosion.global_position = body.global_position
 	add_child(explosion)
@@ -22,8 +22,6 @@ func _on_spawner_sheep_reached_abyss(body):
 	fx.stream = explosions[randi_range(0,len(explosions)-1)]
 	add_child(fx)
 	fx.play()
-
-	
 	explosion.emitting = true
 
 	body.queue_free()
