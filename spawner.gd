@@ -30,5 +30,4 @@ func _on_timer_timeout():
 	sheep.global_position.y = left_point.position.y
 	
 func _on_abyss_reached(body:Node2D):
-	print_debug("lol")
 	emit_signal("sheep_reached_abyss", body)

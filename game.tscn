@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://nk3futyhd5xq"]
+[gd_scene load_steps=7 format=3 uid="uid://nk3futyhd5xq"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_36ujl"]
 [ext_resource type="PackedScene" uid="uid://c7bryqilrava" path="res://background.tscn" id="2_hdh55"]
 [ext_resource type="PackedScene" uid="uid://crgjr4dtiwt0o" path="res://basket.tscn" id="3_1r1d0"]
 [ext_resource type="PackedScene" uid="uid://dh5pcibs7vpim" path="res://spawner.tscn" id="3_ruxjr"]
-[ext_resource type="PackedScene" uid="uid://xkho8sp45eiy" path="res://counter.tscn" id="4_3ldk1"]
 [ext_resource type="AudioStream" uid="uid://da3jx7t5y4ao3" path="res://lullaby2.mp3" id="5_beaxo"]
 [ext_resource type="PackedScene" uid="uid://c60r414l87mea" path="res://tacho.tscn" id="7_pjc75"]
 
@@ -18,7 +17,7 @@ position = Vector2(579, 609)
 scale = Vector2(0.5, 0.5)
 
 [node name="Basket" parent="." instance=ExtResource("3_1r1d0")]
-position = Vector2(571, 450)
+position = Vector2(571, 548)
 
 [node name="SpawnerX1" type="Marker2D" parent="."]
 position = Vector2(181, -93)
@@ -31,24 +30,14 @@ abyss_point = NodePath("../AbyssPoint")
 left_point = NodePath("../SpawnerX1")
 right_point = NodePath("../SpawnerX2")
 
-[node name="Counter" parent="." instance=ExtResource("4_3ldk1")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 10.0
-offset_top = 24.0
-offset_right = 238.0
-offset_bottom = 169.0
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_beaxo")
 volume_db = -8.303
 autoplay = true
 
 [node name="Tacho" parent="." instance=ExtResource("7_pjc75")]
-position = Vector2(970, 84)
+position = Vector2(979, 72)
+scale = Vector2(1, 1)
 
 [connection signal="item_collected" from="Basket" to="." method="_on_basket_item_collected"]
 [connection signal="sheep_reached_abyss" from="Spawner" to="." method="_on_spawner_sheep_reached_abyss"]
