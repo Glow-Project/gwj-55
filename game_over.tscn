@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3wvmrklvmkbe"]
+
+[ext_resource type="Script" path="res://GameOver.gd" id="1_0ofdg"]
+[ext_resource type="PackedScene" uid="uid://c7bryqilrava" path="res://background.tscn" id="2_yy1d4"]
+[ext_resource type="SpriteFrames" uid="uid://bq7svfchbfxxr" path="res://emoji.tres" id="3_6c8rg"]
+[ext_resource type="Texture2D" uid="uid://vshl3x5exx3s" path="res://end.png" id="4_6qhtu"]
+
+[sub_resource type="Gradient" id="Gradient_v0v85"]
+colors = PackedColorArray(0, 0, 0, 0.54902, 0, 0, 1, 0.113725)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2mypu"]
+gradient = SubResource("Gradient_v0v85")
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_0ofdg")
+
+[node name="Background" parent="." instance=ExtResource("2_yy1d4")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1150.0
+offset_top = 1.0
+offset_right = 1797.0
+offset_bottom = 1153.0
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_2mypu")
+
+[node name="Emoji" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(219.5, 410.5)
+scale = Vector2(8.15625, 8.15625)
+sprite_frames = ExtResource("3_6c8rg")
+animation = &"asleep"
+
+[node name="Description" type="RichTextLabel" parent="."]
+offset_left = 459.0
+offset_top = 282.0
+offset_right = 1080.0
+offset_bottom = 546.0
+theme_override_font_sizes/normal_font_size = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577, 103)
+texture = ExtResource("4_6qhtu")
