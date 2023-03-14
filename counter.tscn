@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Counter.gd" id="1_smed5"]
 
 [sub_resource type="SystemFont" id="SystemFont_76w7x"]
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_ice74"]
 default_font = SubResource("SystemFont_76w7x")
@@ -15,5 +16,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ice74")
-text = "0000"
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("1_smed5")
