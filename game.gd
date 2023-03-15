@@ -23,23 +23,24 @@ var punishments = [
 	preload("res://bad_chord4.mp3"),
 ]
 
-func _on_basket_item_collected(body:Node2D):
+func _on_basket_item_collected(body:Sheep):
 	body.queue_free()
-	$Tacho.inc()
 	
-	if $Tacho.score > 0 && $Tacho.score % 5 == 0:
+	if body.special:
+		$Tacho.inc(2)
 		var fx = AudioStreamPlayer.new()
 		fx.stream = rewards[randi_range(0,len(rewards)-1)]
 		fx.set_bus("RewardFX")
 		add_child(fx)
 		fx.play()
+	else:
+		$Tacho.inc(1)
 	
 	if $Tacho.score == $Tacho.total:
 		get_tree().change_scene_to_file("res://game_over.tscn")
 	
 
-func _on_spawner_sheep_reached_abyss(body):
-	$Tacho.dec()
+func _on_spawner_sheep_reached_abyss(body:Sheep):
 	var explosion:Explosion = explosion_scene.instantiate()
 	explosion.global_position = body.global_position
 	add_child(explosion)
@@ -53,12 +54,15 @@ func _on_spawner_sheep_reached_abyss(body):
 
 	body.queue_free()
 	
-	if $Tacho.score < 0 && $Tacho.score % 5 == 0:
+	if body.special:
+		$Tacho.dec(3)
 		var fx2 = AudioStreamPlayer.new()
 		fx2.stream = punishments[randi_range(0,len(punishments)-1)]
 		fx2.set_bus("RewardFX")
 		add_child(fx2)
 		fx2.play()
-	
+	else:
+		$Tacho.dec(1)
+		
 	if $Tacho.score == -$Tacho.total:
 		get_tree().change_scene_to_file("res://game_over.tscn")
