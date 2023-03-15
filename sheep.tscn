@@ -6,6 +6,7 @@
 [node name="Sheep" type="RigidBody2D"]
 inertia = 1.0
 script = ExtResource("1_wwb5v")
+flavors = [Color(1, 0.721569, 0.960784, 1), Color(0.486275, 1, 1, 1), Color(1, 1, 0.623529, 1)]
 
 [node name="Sheep" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

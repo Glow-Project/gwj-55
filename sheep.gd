@@ -6,6 +6,7 @@ signal abyss_reached(body:Node2D)
 @export var abyss_point:Marker2D
 @export_range(0.5,5) var speed = 1.0
 @export_range(0.2,1) var size = 1.0
+@export var flavors:Array
 
 var signal_emitted = false
 
