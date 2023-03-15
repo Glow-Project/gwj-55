@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcylatpst644c"]
+[gd_scene load_steps=4 format=3 uid="uid://bcylatpst644c"]
 
 [ext_resource type="Texture2D" uid="uid://b85e788xatf5v" path="res://sheep.png" id="1_d6k45"]
 [ext_resource type="Script" path="res://sheep.gd" id="1_wwb5v"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q18jp"]
+
 [node name="Sheep" type="RigidBody2D"]
+material = SubResource("CanvasItemMaterial_q18jp")
 inertia = 1.0
 script = ExtResource("1_wwb5v")
-flavors = [Color(1, 0.721569, 0.960784, 1), Color(0.486275, 1, 1, 1), Color(1, 1, 0.623529, 1)]
+flavors = [Color(1, 0.356863, 0.945098, 1), Color(0, 1, 1, 1), Color(1, 1, 0, 1)]
 
-[node name="Sheep" type="Sprite2D" parent="."]
+[node name="SheepSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_d6k45")
 
