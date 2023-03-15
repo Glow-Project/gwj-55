@@ -24,16 +24,14 @@ func _process(delta):
 	if $Emoji.animation != animation:
 		$Emoji.play(animation)
 
-func inc()->void:
-	$Counter.add_score(1)
-	score = min(score+1, total)
+func inc(val=1)->void:
+	score = min(score+val, total)
 	if score == total and !event_emitted:
 		emit_signal("fallen_asleep")
 		event_emitted = true
 
-func dec()->void:
-	$Counter.add_score(-1)
-	score = max(score-1, -total)
+func dec(val=1)->void:
+	score = max(score-val, -total)
 	if score == total and !event_emitted:
 		emit_signal("woken_up")
 		event_emitted = true

@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c60r414l87mea"]
+[gd_scene load_steps=5 format=3 uid="uid://c60r414l87mea"]
 
 [ext_resource type="Script" path="res://tacho.gd" id="1_r5mo0"]
 [ext_resource type="Texture2D" uid="uid://ljpobgyeclcb" path="res://tacho_scale.png" id="1_ve4pj"]
 [ext_resource type="Texture2D" uid="uid://dvcn6ynijctx2" path="res://tacho_needle.png" id="2_ncgm3"]
-[ext_resource type="PackedScene" uid="uid://xkho8sp45eiy" path="res://counter.tscn" id="3_2pbny"]
 [ext_resource type="SpriteFrames" uid="uid://bq7svfchbfxxr" path="res://emoji.tres" id="5_ogubs"]
 
 [node name="Tacho" type="Node2D"]
@@ -15,19 +14,6 @@ texture_filter = 1
 position = Vector2(-1.00001, 28)
 scale = Vector2(0.602446, 0.700297)
 texture = ExtResource("1_ve4pj")
-
-[node name="Counter" parent="." instance=ExtResource("3_2pbny")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -116.0
-offset_top = -88.0
-offset_right = 112.0
-offset_bottom = 57.0
-grow_horizontal = 1
-grow_vertical = 1
-theme_override_font_sizes/font_size = 50
-text = "0"
 
 [node name="Needle" type="Sprite2D" parent="."]
 position = Vector2(-0.87439, 99.4329)
