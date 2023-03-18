@@ -26,4 +26,4 @@ texture_filter = 1
 position = Vector2(2, 74)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("5_ogubs")
-animation = &"asleep"
+animation = &"half_sleeping"
