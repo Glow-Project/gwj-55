@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqky0uuop6hl0"]
+
+[ext_resource type="PackedScene" uid="uid://c7bryqilrava" path="res://background.tscn" id="1_be7yt"]
+[ext_resource type="Script" path="res://settings.gd" id="1_neaks"]
+[ext_resource type="Texture2D" uid="uid://b220auefh2hnv" path="res://back.png" id="2_764m4"]
+[ext_resource type="Texture2D" uid="uid://c8vudo0ll0ll7" path="res://back_hovered.png" id="3_mihvt"]
+[ext_resource type="AudioStream" uid="uid://cstt0oobsu5kj" path="res://milkotz_sheep1.mp3" id="5_vwklr"]
+[ext_resource type="AudioStream" uid="uid://nxvecgwy0f1p" path="res://intro_sound.mp3" id="6_753vx"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_neaks")
+
+[node name="Background" parent="." instance=ExtResource("1_be7yt")]
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 506.0
+offset_right = 391.0
+offset_bottom = 739.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_764m4")
+texture_hover = ExtResource("3_mihvt")
+
+[node name="SettingContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 177.0
+offset_right = 500.0
+offset_bottom = 268.0
+scale = Vector2(2.53473, 2.53473)
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="SettingContainer"]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="SettingContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+min_value = -40.0
+max_value = 0.0
+step = 5.0
+value = -5.0
+tick_count = 10
+
+[node name="MusicLabel" type="Label" parent="SettingContainer"]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 2
+
+[node name="MusicSlider" type="HSlider" parent="SettingContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+min_value = -40.0
+max_value = 0.0
+step = 5.0
+value = -5.0
+tick_count = 10
+
+[node name="FXLabel" type="Label" parent="SettingContainer"]
+layout_mode = 2
+text = "FX"
+horizontal_alignment = 2
+
+[node name="FXSlider" type="HSlider" parent="SettingContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+min_value = -40.0
+max_value = 0.0
+step = 5.0
+value = -5.0
+tick_count = 10
+
+[node name="FXTest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vwklr")
+bus = &"FX"
+
+[node name="MusicTest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_753vx")
+bus = &"Music"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="SettingContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="SettingContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="SettingContainer/FXSlider" to="." method="_on_fx_slider_value_changed"]

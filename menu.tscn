@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://8csk7vfncmkn"]
+[gd_scene load_steps=9 format=3 uid="uid://8csk7vfncmkn"]
 
 [ext_resource type="PackedScene" uid="uid://c7bryqilrava" path="res://background.tscn" id="1_423nq"]
 [ext_resource type="Script" path="res://menu.gd" id="1_aeu28"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c18wi1x6a2qg1" path="res://start.png" id="3_3yhxd"]
 [ext_resource type="Texture2D" uid="uid://d3nuigeulxvyb" path="res://start_hovered.png" id="4_6soun"]
 [ext_resource type="AudioStream" uid="uid://2q4vt3w6e1fh" path="res://lullaby1.mp3" id="5_a2hf3"]
+[ext_resource type="Texture2D" uid="uid://yeuvjupl6xvj" path="res://settings.png" id="6_ltgrv"]
+[ext_resource type="Texture2D" uid="uid://w7knsnb5pyeg" path="res://settings_hovered.png" id="7_wej2g"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -29,14 +31,24 @@ stretch_mode = 3
 
 [node name="StartButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 452.0
-offset_top = 338.0
-offset_right = 968.0
-offset_bottom = 529.0
+offset_left = 451.0
+offset_top = 287.0
+offset_right = 967.0
+offset_bottom = 478.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("3_3yhxd")
 texture_hover = ExtResource("4_6soun")
 stretch_mode = 4
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 409.0
+offset_right = 970.0
+offset_bottom = 633.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_ltgrv")
+texture_hover = ExtResource("7_wej2g")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_a2hf3")
@@ -44,3 +56,4 @@ volume_db = -8.0
 autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
