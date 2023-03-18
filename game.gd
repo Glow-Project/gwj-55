@@ -56,8 +56,7 @@ func _on_basket_item_collected(body:Sheep):
 		fx.play()
 	else:
 		$Tacho.inc(1)
-	print_debug($Tacho.score)
-	
+
 	if $Tacho.score >= $Tacho.total/2:
 		Globals.score = $Tacho.score
 		Globals.description = "whispering: Sleep well, my dear! I'm proud of all of your %d sheeps. Sweet dreams!"
@@ -77,7 +76,7 @@ func _on_spawner_sheep_reached_abyss(body:Sheep):
 	explosion.emitting = true
 
 	body.queue_free()
-	
+
 	if body.special:
 		$Tacho.dec(3)
 		var fx2 = AudioStreamPlayer.new()
@@ -87,13 +86,12 @@ func _on_spawner_sheep_reached_abyss(body:Sheep):
 		fx2.play()
 	else:
 		$Tacho.dec(1)
-	
+
 	if $Tacho.score <= -$Tacho.total/2:
 		Globals.score = $Tacho.score
 		Globals.description = "It was all a dream! Glad you woke up! You avoided to count %d sheeps."
 		Globals.animation = "half_sleeping"
 		get_tree().change_scene_to_file("res://game_over.tscn")
-
 
 func _on_sunclock_sunrise():
 		if $Tacho.score >= 0:
@@ -104,4 +102,3 @@ func _on_sunclock_sunrise():
 		Globals.score = $Tacho.score
 		Globals.animation = "fully_awake"
 		get_tree().change_scene_to_file("res://game_over.tscn")
-	
