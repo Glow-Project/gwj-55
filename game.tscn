@@ -21,10 +21,10 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(571, 548)
 
 [node name="SpawnerX1" type="Marker2D" parent="."]
-position = Vector2(181, -93)
+position = Vector2(178, -83)
 
 [node name="SpawnerX2" type="Marker2D" parent="."]
-position = Vector2(965, -67)
+position = Vector2(943, -69)
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("abyss_point", "left_point", "right_point") instance=ExtResource("3_ruxjr")]
 abyss_point = NodePath("../AbyssPoint")
