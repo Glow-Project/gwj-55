@@ -81,8 +81,7 @@ func _on_spawner_sheep_reached_abyss(body:Sheep):
 		fx2.play()
 	else:
 		$Tacho.dec(1)
-		
-	print_debug($Tacho.score)
+	
 	if $Tacho.score <= -$Tacho.total/2:
 		Globals.score = $Tacho.score
 		Globals.description = "It was all a dream! Glad you woke up! You avoided to count %d sheeps."
