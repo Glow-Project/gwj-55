@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://bp1y36w6djxoq"]
+
+[ext_resource type="Script" path="res://PauseMenu.gd" id="1_gsrut"]
+[ext_resource type="Texture2D" uid="uid://kyraswl3l0wv" path="res://menu_button.png" id="2_ts20r"]
+[ext_resource type="Texture2D" uid="uid://cmycdlwbwytpn" path="res://menu_button_hovered.png" id="3_yt2k3"]
+[ext_resource type="Texture2D" uid="uid://d2vnl8a0a6jb4" path="res://continue.png" id="4_quuto"]
+[ext_resource type="Texture2D" uid="uid://crxmy2rhwh8gl" path="res://continue_hovered.png" id="5_1q0ys"]
+[ext_resource type="Texture2D" uid="uid://dq7eblwsog0xu" path="res://logo.png" id="6_5ice8"]
+[ext_resource type="Texture2D" uid="uid://berawjiiri4ww" path="res://reset.png" id="7_ki7tr"]
+[ext_resource type="Texture2D" uid="uid://d4cm13ai0g6fn" path="res://reset_hovered.png" id="8_pg8no"]
+[ext_resource type="Texture2D" uid="uid://egaq3bwmts2b" path="res://quit.png" id="9_oetj0"]
+[ext_resource type="Texture2D" uid="uid://bvnaqhkjbjweb" path="res://quit_hovered.png" id="10_xkftl"]
+
+[sub_resource type="Gradient" id="Gradient_urlxc"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.564706)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i50u2"]
+gradient = SubResource("Gradient_urlxc")
+width = 10
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gsrut")
+
+[node name="Panel" type="Sprite2D" parent="."]
+position = Vector2(1024.68, 323.784)
+rotation = 1.5708
+scale = Vector2(65.5654, 315.737)
+texture = SubResource("GradientTexture1D_i50u2")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(1013, 64)
+scale = Vector2(0.538647, 0.538647)
+texture = ExtResource("6_5ice8")
+
+[node name="MenuButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 466.0
+offset_right = 1386.0
+offset_bottom = 707.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("2_ts20r")
+texture_hover = ExtResource("3_yt2k3")
+
+[node name="ContinueButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 303.0
+offset_right = 1518.0
+offset_bottom = 464.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("4_quuto")
+texture_hover = ExtResource("5_1q0ys")
+
+[node name="ResetButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 377.0
+offset_right = 1327.0
+offset_bottom = 568.0
+scale = Vector2(0.411632, 0.411632)
+texture_normal = ExtResource("7_ki7tr")
+texture_hover = ExtResource("8_pg8no")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 881.0
+offset_top = 553.0
+offset_right = 1244.0
+offset_bottom = 717.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("9_oetj0")
+texture_hover = ExtResource("10_xkftl")
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
