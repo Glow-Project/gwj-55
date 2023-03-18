@@ -59,8 +59,9 @@ func _on_basket_item_collected(body:Sheep):
 
 	if $Tacho.score >= $Tacho.total/2:
 		Globals.score = $Tacho.score
-		Globals.description = "whispering: Sleep well, my dear! I'm proud of all of your %d sheeps. Sweet dreams!"
+		Globals.description = "You finally fell asleep. I'm proud of all of your %d sheeps. Sweet dreams!"
 		Globals.animation = "asleep"
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://game_over.tscn")
 
 func _on_spawner_sheep_reached_abyss(body:Sheep):
@@ -91,6 +92,7 @@ func _on_spawner_sheep_reached_abyss(body:Sheep):
 		Globals.score = $Tacho.score
 		Globals.description = "It was all a dream! Glad you woke up! You avoided to count %d sheeps."
 		Globals.animation = "half_sleeping"
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://game_over.tscn")
 
 func _on_sunclock_sunrise():
@@ -101,4 +103,5 @@ func _on_sunclock_sunrise():
 	
 		Globals.score = $Tacho.score
 		Globals.animation = "fully_awake"
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://game_over.tscn")
