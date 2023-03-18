@@ -9,7 +9,7 @@
 script = ExtResource("1_lhck7")
 
 [node name="Clock" type="Sprite2D" parent="."]
-rotation = 3.14159
+rotation = -3.14159
 texture = ExtResource("1_wg0et")
 
 [node name="Display" type="Sprite2D" parent="."]
@@ -17,14 +17,8 @@ position = Vector2(0, -3.75)
 scale = Vector2(1, 1.01732)
 texture = ExtResource("2_wwqur")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
-
 [node name="ClockSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_wkf2y")
 volume_db = -80.0
 autoplay = true
 bus = &"FX"
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
