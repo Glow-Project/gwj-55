@@ -14,4 +14,4 @@ func _on_timer_timeout():
 	if degrees >= 360:
 		$Timer.stop()
 		emit_signal("sunrise")
-	$ClockSound.volume_db += 1
+	$ClockSound.volume_db = min($ClockSound.volume_db+1, -25)
