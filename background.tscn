@@ -30,9 +30,9 @@ color_ramp = SubResource("GradientTexture1D_mssnh")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(569, 324.194)
+position = Vector2(578.005, 324.194)
 rotation = -1.5708
-scale = Vector2(11.1252, -1140.29)
+scale = Vector2(11.1252, -1158.3)
 texture = SubResource("GradientTexture1D_g36pl")
 
 [node name="Stars" type="GPUParticles2D" parent="."]
