@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name GameOver
 
 var descriptions = {
 	"asleep": {
@@ -12,14 +12,21 @@ var descriptions = {
 	},
 }
 
+var win_sound = preload("res://win_musicbox.mp3")
+var loose_sound = preload("res://loose_sound.mp3")
+var alternate_win_sound = preload("res://alarm_clock_eriklindmanmata.mp3")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var end = "asleep"
-	if sign(get_parent().Tacho.score) == -1:
-		end = "fully_wake"
-	$Emoji.play(end)
-	
-	if abs(get_parent().Tacho.score) >= get_parent().Tacho.total:
-		$Description.text = descriptions[end]["won"] % get_parent().Tacho.score
+	print_debug(Globals.animation)
+	$Emoji.play(Globals.animation)
+	$Description.text = Globals.description % abs(Globals.score)
+
+	if Globals.animation == "asleep":
+		$Sound.stream = win_sound
+	elif Globals.animation == "fully_awake":
+		$Sound.stream = loose_sound
 	else:
-		$Description.text = descriptions[end]["lost"] % get_parent().Tacho.score
+		$Sound.stream = alternate_win_sound
+
+	$Sound.play()
