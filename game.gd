@@ -90,7 +90,12 @@ func _on_spawner_sheep_reached_abyss(body:Sheep):
 
 
 func _on_sunclock_sunrise():
+		if $Tacho.score >= 0:
+			Globals.description = "It's already morning! You're sleepwalking like a zombie...mentaly wasted. You lost %d sheeps."
+		else:
+			Globals.description = "Have you ever had a dream, Neo, that you were so sure was real? What if you were unable to wake from that dream? How would you know the difference between the dream world and the real world, with only %d sheeps?"
+	
 		Globals.score = $Tacho.score
-		Globals.description = "It's already morning! You're sleepwalking like a zombie...mentaly wasted. You lost %d sheeps."
 		Globals.animation = "fully_awake"
 		get_tree().change_scene_to_file("res://game_over.tscn")
+	
