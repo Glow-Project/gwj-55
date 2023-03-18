@@ -1,9 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3wvmrklvmkbe"]
+[gd_scene load_steps=15 format=3 uid="uid://c3wvmrklvmkbe"]
 
 [ext_resource type="Script" path="res://GameOver.gd" id="1_0ofdg"]
 [ext_resource type="PackedScene" uid="uid://c7bryqilrava" path="res://background.tscn" id="2_yy1d4"]
 [ext_resource type="SpriteFrames" uid="uid://bq7svfchbfxxr" path="res://emoji.tres" id="3_6c8rg"]
 [ext_resource type="Texture2D" uid="uid://vshl3x5exx3s" path="res://end.png" id="4_6qhtu"]
+[ext_resource type="Texture2D" uid="uid://berawjiiri4ww" path="res://reset.png" id="5_0erx5"]
+[ext_resource type="Texture2D" uid="uid://d4cm13ai0g6fn" path="res://reset_hovered.png" id="6_n3yfm"]
+[ext_resource type="Texture2D" uid="uid://kyraswl3l0wv" path="res://menu_button.png" id="7_m1voo"]
+[ext_resource type="Texture2D" uid="uid://cmycdlwbwytpn" path="res://menu_button_hovered.png" id="8_320gk"]
+[ext_resource type="Texture2D" uid="uid://egaq3bwmts2b" path="res://quit.png" id="9_5787h"]
+[ext_resource type="Texture2D" uid="uid://bvnaqhkjbjweb" path="res://quit_hovered.png" id="10_1auja"]
 
 [sub_resource type="Gradient" id="Gradient_v0v85"]
 colors = PackedColorArray(0, 0, 0, 0.54902, 0, 0, 1, 0.113725)
@@ -12,7 +18,7 @@ colors = PackedColorArray(0, 0, 0, 0.54902, 0, 0, 1, 0.113725)
 gradient = SubResource("Gradient_v0v85")
 
 [sub_resource type="SystemFont" id="SystemFont_s4aic"]
-font_names = PackedStringArray("Arial")
+font_names = PackedStringArray("Fantasy")
 
 [sub_resource type="Theme" id="Theme_wptcf"]
 default_font = SubResource("SystemFont_s4aic")
@@ -32,23 +38,54 @@ texture = SubResource("GradientTexture1D_2mypu")
 
 [node name="Emoji" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(219.5, 410.5)
-scale = Vector2(8.15625, 8.15625)
+position = Vector2(223, 392)
+scale = Vector2(7.5, 7.5)
 sprite_frames = ExtResource("3_6c8rg")
 animation = &"half_sleeping"
 
 [node name="Description" type="RichTextLabel" parent="."]
-offset_left = 459.0
-offset_top = 282.0
-offset_right = 1080.0
-offset_bottom = 546.0
+offset_left = 389.0
+offset_top = 281.0
+offset_right = 1136.0
+offset_bottom = 521.0
 theme = SubResource("Theme_wptcf")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 45
 text = "FATALITY! You're sleepwalking like a zombie...mentaly wasted. You only got %d sheeps."
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(577, 127)
+[node name="Banner" type="Sprite2D" parent="."]
+position = Vector2(628, 128)
 texture = ExtResource("4_6qhtu")
+
+[node name="ResetButton" type="TextureButton" parent="."]
+offset_left = 315.0
+offset_top = 548.0
+offset_right = 750.0
+offset_bottom = 739.0
+scale = Vector2(0.404006, 0.404006)
+texture_normal = ExtResource("5_0erx5")
+texture_hover = ExtResource("6_n3yfm")
+
+[node name="MenuButton" type="TextureButton" parent="."]
+offset_left = 531.0
+offset_top = 547.0
+offset_right = 1030.0
+offset_bottom = 788.0
+scale = Vector2(0.363361, 0.363361)
+texture_normal = ExtResource("7_m1voo")
+texture_hover = ExtResource("8_320gk")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+offset_left = 772.0
+offset_top = 549.0
+offset_right = 1135.0
+offset_bottom = 713.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("9_5787h")
+texture_hover = ExtResource("10_1auja")
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 bus = &"GameOverFX"
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

@@ -17,3 +17,12 @@ func _ready():
 	else:
 		$Sound.stream = alternate_win_sound
 	$Sound.play()
+
+func _on_reset_button_pressed():
+	get_tree().change_scene_to_file("res://game.tscn")
+
+func _on_menu_button_pressed():
+	get_tree().change_scene_to_file("res://menu.tscn")
+
+func _on_quit_button_pressed():
+	get_tree().quit()
