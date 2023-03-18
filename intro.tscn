@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://cdy8kmknqp2m5"]
+
+[ext_resource type="Texture2D" uid="uid://hfk07ohdr17r" path="res://GWJ-Full-Logo-tag-4k.png" id="1_6b2tb"]
+[ext_resource type="Script" path="res://intro.gd" id="1_jr3m2"]
+[ext_resource type="AudioStream" uid="uid://c4osspfics8hl" path="res://intro_sound_1.mp3" id="2_jd73g"]
+[ext_resource type="AudioStream" uid="uid://d3vorf5l7f6xv" path="res://intro_sound_2.mp3" id="3_hsnh4"]
+[ext_resource type="AudioStream" uid="uid://6qhf3exp20st" path="res://intro_sound_3.mp3" id="4_ql65f"]
+[ext_resource type="Texture2D" uid="uid://oovgf3l24itc" path="res://fork-this-road.png" id="5_jnsah"]
+[ext_resource type="Texture2D" uid="uid://c2qe8gbwe2vu3" path="res://kaboom.png" id="6_pon5e"]
+[ext_resource type="Texture2D" uid="uid://dq7eblwsog0xu" path="res://logo.png" id="7_6dc6r"]
+
+[sub_resource type="Animation" id="Animation_il7o1"]
+resource_name = "intro"
+length = 3.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroSound")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.051069,
+"stream": ExtResource("2_jd73g")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.051069,
+"stream": ExtResource("3_hsnh4")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0520903,
+"stream": ExtResource("4_ql65f")
+}],
+"times": PackedFloat32Array(0, 0.6, 1.2)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GodotWildJamLogo:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wildcards:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mees1"]
+_data = {
+"intro": SubResource("Animation_il7o1")
+}
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_jr3m2")
+
+[node name="GodotWildJamLogo" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(158, 476)
+scale = Vector2(0.170238, 0.170238)
+texture = ExtResource("1_6b2tb")
+
+[node name="IntroSound" type="AudioStreamPlayer" parent="."]
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mees1")
+}
+
+[node name="Wildcards" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(420.255, 465)
+scale = Vector2(0.221033, 0.221033)
+texture = ExtResource("5_jnsah")
+
+[node name="Wildcards2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(637.255, 465)
+scale = Vector2(0.221033, 0.221033)
+texture = ExtResource("6_pon5e")
+
+[node name="Logo" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(517, 151)
+texture = ExtResource("7_6dc6r")
