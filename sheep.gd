@@ -27,7 +27,7 @@ func random()->void:
 		special = true
 		modulate = flavors[randi() % flavors.size()]
 		speed = randf_range(3,5)
-		size = randf_range(0.2,0.5)
+		size = randf_range(0.1,0.5)
 		return
 	
 	speed = randf_range(0.5,5)
