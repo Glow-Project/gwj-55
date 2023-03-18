@@ -1,17 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdy8kmknqp2m5"]
+[gd_scene load_steps=16 format=3 uid="uid://cdy8kmknqp2m5"]
 
 [ext_resource type="Texture2D" uid="uid://hfk07ohdr17r" path="res://GWJ-Full-Logo-tag-4k.png" id="1_6b2tb"]
 [ext_resource type="Script" path="res://intro.gd" id="1_jr3m2"]
+[ext_resource type="PackedScene" uid="uid://c7bryqilrava" path="res://background.tscn" id="2_iucka"]
 [ext_resource type="AudioStream" uid="uid://c4osspfics8hl" path="res://intro_sound_1.mp3" id="2_jd73g"]
 [ext_resource type="AudioStream" uid="uid://d3vorf5l7f6xv" path="res://intro_sound_2.mp3" id="3_hsnh4"]
 [ext_resource type="AudioStream" uid="uid://6qhf3exp20st" path="res://intro_sound_3.mp3" id="4_ql65f"]
 [ext_resource type="Texture2D" uid="uid://oovgf3l24itc" path="res://fork-this-road.png" id="5_jnsah"]
 [ext_resource type="Texture2D" uid="uid://c2qe8gbwe2vu3" path="res://kaboom.png" id="6_pon5e"]
 [ext_resource type="Texture2D" uid="uid://dq7eblwsog0xu" path="res://logo.png" id="7_6dc6r"]
+[ext_resource type="Texture2D" uid="uid://3q0ww62qeqf4" path="res://author.png" id="10_67iai"]
+
+[sub_resource type="Gradient" id="Gradient_2o7sq"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2w4c2"]
+gradient = SubResource("Gradient_2o7sq")
 
 [sub_resource type="Animation" id="Animation_il7o1"]
 resource_name = "intro"
-length = 3.0
+length = 3.5
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -32,7 +41,7 @@ tracks/0/keys = {
 "start_offset": 0.0520903,
 "stream": ExtResource("4_ql65f")
 }],
-"times": PackedFloat32Array(0, 0.6, 1.2)
+"times": PackedFloat32Array(0.5, 1.1, 1.7)
 }
 tracks/0/use_blend = true
 tracks/1/type = "value"
@@ -42,52 +51,237 @@ tracks/1/path = NodePath("GodotWildJamLogo:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Wildcards:visible")
+tracks/2/path = NodePath("Wildcard1:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wildcard2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Logo:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Background:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Background:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Author:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_oyxj3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wildcard2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wildcard1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:modulate:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background:modulate:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background:modulate:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Author:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mees1"]
 _data = {
+"RESET": SubResource("Animation_oyxj3"),
 "intro": SubResource("Animation_il7o1")
 }
 
 [node name="Intro" type="Node2D"]
+scale = Vector2(0.997323, 1)
 script = ExtResource("1_jr3m2")
 
+[node name="Backbackground" type="Sprite2D" parent="."]
+position = Vector2(577.861, 323.089)
+scale = Vector2(4.54015, 657.821)
+texture = SubResource("GradientTexture1D_2w4c2")
+
+[node name="Background" parent="." instance=ExtResource("2_iucka")]
+modulate = Color(1, 1, 1, 0)
+
 [node name="GodotWildJamLogo" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(158, 476)
 scale = Vector2(0.170238, 0.170238)
 texture = ExtResource("1_6b2tb")
 
 [node name="IntroSound" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_mees1")
 }
 
-[node name="Wildcards" type="Sprite2D" parent="."]
+[node name="Wildcard1" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(420.255, 465)
 scale = Vector2(0.221033, 0.221033)
 texture = ExtResource("5_jnsah")
 
-[node name="Wildcards2" type="Sprite2D" parent="."]
+[node name="Wildcard2" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(637.255, 465)
 scale = Vector2(0.221033, 0.221033)
@@ -95,5 +289,13 @@ texture = ExtResource("6_pon5e")
 
 [node name="Logo" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(517, 151)
+position = Vector2(574.538, 131)
 texture = ExtResource("7_6dc6r")
+
+[node name="Author" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(986.641, 573)
+scale = Vector2(0.286234, 0.286234)
+texture = ExtResource("10_67iai")
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

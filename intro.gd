@@ -5,7 +5,5 @@ extends Node2D
 func _ready():
 	$Animation.play("intro")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_animation_animation_finished(anim_name):
+	get_tree().change_scene_to_file("res://menu.tscn")
