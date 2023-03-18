@@ -30,6 +30,12 @@ var sheeps = [
 	preload("res://milkotz_sheep4.mp3"),
 ]
 
+func _process(delta):
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if Input.is_action_just_pressed("key_exit"): 
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+		$PauseMenu.show()
 
 func _on_basket_item_collected(body:Sheep):
 	body.queue_free()

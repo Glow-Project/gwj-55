@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://nk3futyhd5xq"]
+[gd_scene load_steps=9 format=3 uid="uid://nk3futyhd5xq"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_36ujl"]
 [ext_resource type="PackedScene" uid="uid://c7bryqilrava" path="res://background.tscn" id="2_hdh55"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://da3jx7t5y4ao3" path="res://lullaby2.mp3" id="5_beaxo"]
 [ext_resource type="PackedScene" uid="uid://blkcx8bdqtiok" path="res://sunclock.tscn" id="7_4pu4o"]
 [ext_resource type="PackedScene" uid="uid://c60r414l87mea" path="res://tacho.tscn" id="7_pjc75"]
+[ext_resource type="PackedScene" uid="uid://bp1y36w6djxoq" path="res://pause_menu.tscn" id="8_ssm8y"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_36ujl")
@@ -44,6 +45,9 @@ scale = Vector2(1, 1)
 [node name="Sunclock" parent="." instance=ExtResource("7_4pu4o")]
 position = Vector2(134, 114)
 scale = Vector2(0.5, 0.5)
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_ssm8y")]
+visible = false
 
 [connection signal="item_collected" from="Basket" to="." method="_on_basket_item_collected"]
 [connection signal="sheep_reached_abyss" from="Spawner" to="." method="_on_spawner_sheep_reached_abyss"]
