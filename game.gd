@@ -50,10 +50,13 @@ func _on_basket_item_collected(body:Sheep):
 		fx.play()
 	else:
 		$Tacho.inc(1)
+	print_debug($Tacho.score)
 	
-	if $Tacho.score == $Tacho.total:
+	if $Tacho.score >= $Tacho.total/2:
+		Globals.score = $Tacho.score
+		Globals.description = "whispering: Sleep well, my dear! I'm proud of all of your %d sheeps. Sweet dreams!"
+		Globals.animation = "asleep"
 		get_tree().change_scene_to_file("res://game_over.tscn")
-	
 
 func _on_spawner_sheep_reached_abyss(body:Sheep):
 	var explosion:Explosion = explosion_scene.instantiate()
@@ -79,5 +82,16 @@ func _on_spawner_sheep_reached_abyss(body:Sheep):
 	else:
 		$Tacho.dec(1)
 		
-	if $Tacho.score == -$Tacho.total:
+	print_debug($Tacho.score)
+	if $Tacho.score <= -$Tacho.total/2:
+		Globals.score = $Tacho.score
+		Globals.description = "It was all a dream! Glad you woke up! You avoided to count %d sheeps."
+		Globals.animation = "half_sleeping"
+		get_tree().change_scene_to_file("res://game_over.tscn")
+
+
+func _on_sunclock_sunrise():
+		Globals.score = $Tacho.score
+		Globals.description = "It's already morning! You're sleepwalking like a zombie...mentaly wasted. You lost %d sheeps."
+		Globals.animation = "fully_awake"
 		get_tree().change_scene_to_file("res://game_over.tscn")

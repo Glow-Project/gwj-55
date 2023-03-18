@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://nk3futyhd5xq"]
+[gd_scene load_steps=8 format=3 uid="uid://nk3futyhd5xq"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_36ujl"]
 [ext_resource type="PackedScene" uid="uid://c7bryqilrava" path="res://background.tscn" id="2_hdh55"]
 [ext_resource type="PackedScene" uid="uid://crgjr4dtiwt0o" path="res://basket.tscn" id="3_1r1d0"]
 [ext_resource type="PackedScene" uid="uid://dh5pcibs7vpim" path="res://spawner.tscn" id="3_ruxjr"]
 [ext_resource type="AudioStream" uid="uid://da3jx7t5y4ao3" path="res://lullaby2.mp3" id="5_beaxo"]
+[ext_resource type="PackedScene" uid="uid://blkcx8bdqtiok" path="res://sunclock.tscn" id="7_4pu4o"]
 [ext_resource type="PackedScene" uid="uid://c60r414l87mea" path="res://tacho.tscn" id="7_pjc75"]
 
 [node name="Game" type="Node2D"]
@@ -34,10 +35,16 @@ right_point = NodePath("../SpawnerX2")
 stream = ExtResource("5_beaxo")
 volume_db = -8.303
 autoplay = true
+bus = &"Music"
 
 [node name="Tacho" parent="." instance=ExtResource("7_pjc75")]
 position = Vector2(979, 72)
 scale = Vector2(1, 1)
 
+[node name="Sunclock" parent="." instance=ExtResource("7_4pu4o")]
+position = Vector2(134, 114)
+scale = Vector2(0.5, 0.5)
+
 [connection signal="item_collected" from="Basket" to="." method="_on_basket_item_collected"]
 [connection signal="sheep_reached_abyss" from="Spawner" to="." method="_on_spawner_sheep_reached_abyss"]
+[connection signal="sunrise" from="Sunclock" to="." method="_on_sunclock_sunrise"]
