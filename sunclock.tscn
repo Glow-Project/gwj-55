@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://blkcx8bdqtiok"]
+
+[ext_resource type="Script" path="res://sunclock.gd" id="1_lhck7"]
+[ext_resource type="Texture2D" uid="uid://yqnmhrcvhpos" path="res://sunclock.png" id="1_wg0et"]
+[ext_resource type="Texture2D" uid="uid://b0ecxiphjbwh8" path="res://sunclock_display.png" id="2_wwqur"]
+[ext_resource type="AudioStream" uid="uid://jskpbno0knl" path="res://tick_tack.mp3" id="4_wkf2y"]
+
+[node name="Sunclock" type="Node2D"]
+script = ExtResource("1_lhck7")
+
+[node name="Clock" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_wg0et")
+
+[node name="Display" type="Sprite2D" parent="."]
+position = Vector2(0, -3.75)
+scale = Vector2(1, 1.01732)
+texture = ExtResource("2_wwqur")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="ClockSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wkf2y")
+volume_db = -80.0
+autoplay = true
+bus = &"FX"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
