@@ -23,8 +23,23 @@ var punishments = [
 	preload("res://bad_chord4.mp3"),
 ]
 
+var sheeps = [
+	preload("res://milkotz_sheep1.mp3"),
+	preload("res://milkotz_sheep2.mp3"),
+	preload("res://milkotz_sheep3.mp3"),
+	preload("res://milkotz_sheep4.mp3"),
+]
+
+
 func _on_basket_item_collected(body:Sheep):
 	body.queue_free()
+	
+	var sheep_player = AudioStreamPlayer.new()
+	sheep_player.stream = sheeps[randi_range(0,len(sheeps)-1)]
+	sheep_player.set_bus("SheepFX")
+	sheep_player.pitch_scale -= (body.size-0.9)
+	add_child(sheep_player)
+	sheep_player.play()
 	
 	if body.special:
 		$Tacho.inc(2)
