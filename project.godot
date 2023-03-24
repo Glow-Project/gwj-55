@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="zzz"
+config/description="Can you fall asleep before the night is over?"
 run/main_scene="res://intro.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://logo.png"
 
 [autoload]
 
