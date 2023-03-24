@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c2qe8gbwe2vu3" path="res://kaboom.png" id="6_pon5e"]
 [ext_resource type="Texture2D" uid="uid://dq7eblwsog0xu" path="res://logo.png" id="7_6dc6r"]
 [ext_resource type="Texture2D" uid="uid://3q0ww62qeqf4" path="res://author.png" id="10_67iai"]
+[ext_resource type="Texture2D" uid="uid://bh1kdfc0h1j26" path="res://55-Theme-Dreams.png" id="11_1bayk"]
 
 [sub_resource type="Animation" id="Animation_oyxj3"]
 length = 0.001
@@ -105,6 +106,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Theme:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_il7o1"]
 resource_name = "intro"
@@ -163,10 +176,10 @@ tracks/3/path = NodePath("Wildcard2:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -236,6 +249,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Theme:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mees1"]
 _data = {
@@ -249,6 +274,7 @@ script = ExtResource("1_jr3m2")
 
 [node name="Background" parent="." instance=ExtResource("2_iucka")]
 modulate = Color(1, 1, 1, 0)
+position = Vector2(-3.00805, 0)
 
 [node name="GodotWildJamLogo" type="Sprite2D" parent="."]
 position = Vector2(158, 476)
@@ -285,5 +311,11 @@ visible = false
 position = Vector2(986.641, 573)
 scale = Vector2(0.286234, 0.286234)
 texture = ExtResource("10_67iai")
+
+[node name="Theme" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(944.234, 387.738)
+scale = Vector2(0.141337, 0.141337)
+texture = ExtResource("11_1bayk")
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
