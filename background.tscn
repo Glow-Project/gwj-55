@@ -2,7 +2,7 @@
 
 [sub_resource type="Gradient" id="Gradient_qqhsb"]
 offsets = PackedFloat32Array(0.0479042, 0.149701, 0.508982, 0.6, 0.621951, 0.702439, 1)
-colors = PackedColorArray(2.10572e-08, 0.237782, 0.0426036, 1, 1.50409e-08, 0.318864, 0.0304312, 1, 0, 0.377955, 0, 1, 0, 0.4, 0.164706, 0.403922, 0, 0.321569, 0.529412, 1, 5.53504e-07, 0.274246, 0.438841, 1, 0, 0.148368, 0.295661, 1)
+colors = PackedColorArray(2.10572e-08, 0.237782, 0.0426036, 1, 1.50409e-08, 0.318864, 0.0304312, 1, 0, 0.377955, 0, 1, 0, 0.4, 0.164706, 0.403922, 0, 0.321569, 0.529412, 1, 5.53504e-07, 0.274246, 0.438841, 1, 0, 0.14902, 0.294118, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_g36pl"]
 gradient = SubResource("Gradient_qqhsb")
@@ -30,9 +30,9 @@ color_ramp = SubResource("GradientTexture1D_mssnh")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(578.005, 324.194)
+position = Vector2(578.005, 327.902)
 rotation = -1.5708
-scale = Vector2(11.1252, -1158.3)
+scale = Vector2(11.2488, -1158.3)
 texture = SubResource("GradientTexture1D_g36pl")
 
 [node name="Stars" type="GPUParticles2D" parent="."]
