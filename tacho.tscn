@@ -16,8 +16,8 @@ scale = Vector2(0.602446, 0.700297)
 texture = ExtResource("1_ve4pj")
 
 [node name="Needle" type="Sprite2D" parent="."]
-position = Vector2(-0.87439, 99.4329)
-scale = Vector2(0.797968, 0.214286)
+position = Vector2(1.10906, 99.4329)
+scale = Vector2(0.676792, 0.214286)
 texture = ExtResource("2_ncgm3")
 offset = Vector2(-91.6317, -2.02003)
 
