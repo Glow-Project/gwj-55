@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://8csk7vfncmkn"]
+[gd_scene load_steps=11 format=3 uid="uid://8csk7vfncmkn"]
 
 [ext_resource type="PackedScene" uid="uid://c7bryqilrava" path="res://background.tscn" id="1_423nq"]
 [ext_resource type="Script" path="res://menu.gd" id="1_aeu28"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://2q4vt3w6e1fh" path="res://lullaby1.mp3" id="5_a2hf3"]
 [ext_resource type="Texture2D" uid="uid://yeuvjupl6xvj" path="res://settings.png" id="6_ltgrv"]
 [ext_resource type="Texture2D" uid="uid://w7knsnb5pyeg" path="res://settings_hovered.png" id="7_wej2g"]
+[ext_resource type="Texture2D" uid="uid://egaq3bwmts2b" path="res://quit.png" id="9_bje67"]
+[ext_resource type="Texture2D" uid="uid://bvnaqhkjbjweb" path="res://quit_hovered.png" id="10_07ex3"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -55,5 +57,16 @@ stream = ExtResource("5_a2hf3")
 volume_db = -8.0
 autoplay = true
 
+[node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 531.0
+offset_right = 858.0
+offset_bottom = 695.0
+scale = Vector2(0.49934, 0.49934)
+texture_normal = ExtResource("9_bje67")
+texture_hover = ExtResource("10_07ex3")
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
